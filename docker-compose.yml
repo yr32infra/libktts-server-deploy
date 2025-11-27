@@ -1,0 +1,40 @@
+services:
+  libkttsserver:
+    image: ghcr.io/yanorei32/libktts-server:v0.1.0
+    hostname: libkttsserver
+    container_name: libkttsserver__libkttsserver
+
+    restart: unless-stopped
+
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+
+    networks:
+      - default
+
+  cloudflared:
+    image: cloudflare/cloudflared:2025.11.1
+    hostname: cloudflared
+    container_name: libkttsserver__cloudflared
+
+    restart: unless-stopped
+
+    environment:
+      TUNNEL_LOGFILE: /dev/stdout
+
+    command: tunnel run --token ${TUNNEL_TOKEN}
+    user: root
+
+    deploy:
+      resources:
+        limits:
+          memory: 4096m
+
+    networks:
+      default:
+
+networks:
+  default:
+    name: libkttsserver__default
