@@ -2,7 +2,7 @@ services:
   libkttsserver:
     image: ghcr.io/yanorei32/libktts-server:v0.1.1
     hostname: libkttsserver
-    container_name: libkttsserver__libkttsserver
+    container_name: libkttsserver${VARIANT:-}__libkttsserver
 
     restart: unless-stopped
 
@@ -40,4 +40,4 @@ services:
 
 networks:
   default:
-    name: libkttsserver__default
+    name: libkttsserver${VARIANT:-}__default
