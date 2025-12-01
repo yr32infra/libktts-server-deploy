@@ -20,7 +20,7 @@ services:
   cloudflared:
     image: cloudflare/cloudflared:2025.11.1
     hostname: cloudflared
-    container_name: libkttsserver__cloudflared
+    container_name: libkttsserver${VARIANT:-}__cloudflared
 
     restart: unless-stopped
 
