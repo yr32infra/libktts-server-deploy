@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
 
     environment:
-      MAXIMUM_LENGTH: ${MAXIMUM_LENGTH:-140}
+      MAXIMUM_LENGTH: ${MAXIMUM_LENGTH:-512}
 
     deploy:
       resources:
