@@ -1,6 +1,6 @@
 services:
   libkttsserver:
-    image: ghcr.io/yanorei32/libktts-server:v0.1.5
+    image: ghcr.io/yanorei32/libktts-server:v0.1.6
     hostname: libkttsserver
     container_name: libkttsserver${VARIANT:-}__libkttsserver
 
